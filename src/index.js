@@ -60,8 +60,8 @@ app.get("/launch", (req, res, next) => {
 
     // ------------------------------------------------------------------------
     // CodeSandbox hack! Please ignore if you use this code elsewhere
-    req.headers["x-forwarded-host"] = process.env.SANDBOX_URL
-        .replace(/^https?:\/\//, "").replace(/\/$/, "");
+    // req.headers["x-forwarded-host"] = process.env.SANDBOX_URL
+    //     .replace(/^https?:\/\//, "").replace(/\/$/, "");
     // ------------------------------------------------------------------------
 
     smart(req, res).authorize(smartSettings).catch(next);
