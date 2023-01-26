@@ -27,7 +27,7 @@ async function handler(client, res) {
         client.patient.id ? client.patient.read() : client.request("Patient")
     );
     res.type("json").send(JSON.stringify(data, null, 4));
-} 
+}
 
 // =============================================================================
 // LAUNCHING
@@ -87,9 +87,9 @@ app.get("/", (req, res) => {
 
     // ------------------------------------------------------------------------
     // CodeSandbox hack! Please ignore if you use this code elsewhere
-    req.headers["x-forwarded-host"] = process.env.SANDBOX_URL
-        .replace(/^https?:\/\//, "").replace(/\/$/, "");
-    // ------------------------------------------------------------------------
+    // req.headers["x-forwarded-host"] = process.env.SANDBOX_URL
+    //     .replace(/^https?:\/\//, "").replace(/\/$/, "");
+    // // ------------------------------------------------------------------------
 
     smart(req, res)
         .init({ ...smartSettings, redirectUri: "/" })
