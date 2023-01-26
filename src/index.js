@@ -15,7 +15,7 @@ app.use(session({
 const smartSettings = {
     clientId: "my-client-id",
     redirectUri: "/app",
-    scope: "launch/patient patient/*.read openid fhirUser",
+    scope: "launch/patient patient/Patient.read openid fhirUser",
     iss: "https://launch.smarthealthit.org/v/r2/sim/eyJrIjoiMSIsImIiOiJzbWFydC03Nzc3NzA1In0/fhir"
 };
 
