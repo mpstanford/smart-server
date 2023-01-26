@@ -14,7 +14,7 @@ app.use(session({
 // The settings that we use to connect to our SMART on FHIR server
 const smartSettings = {
     clientId: "my-client-id",
-    redirectUri: "/app",
+    // redirectUri: "/app",
     scope: "launch/patient patient/*.read openid fhirUser"
     // iss: "https://launch.smarthealthit.org/v/r2/sim/eyJrIjoiMSIsImIiOiJzbWFydC03Nzc3NzA1In0/fhir"
 };
@@ -73,7 +73,7 @@ app.get("/launch", (req, res, next) => {
 // The app lives at your redirect_uri (in this case that is
 // "https://c0che.sse.codesandbox.io/app"). After waiting for "ready()", you get
 // a client instance that can be used to query the fhir server.
-app.get("/app", (req, res) => {
+app.get("/", (req, res) => {
     smart(req, res).ready().then(client => handler(client, res));
 });
 
@@ -83,18 +83,18 @@ app.get("/app", (req, res) => {
 // In case you prefer to handle everything in one place, you can use the "init"
 // method instead of "authorize" and then "ready". It takes the same options as
 // "authorize"
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
 
-    // ------------------------------------------------------------------------
-    // CodeSandbox hack! Please ignore if you use this code elsewhere
-    // req.headers["x-forwarded-host"] = process.env.SANDBOX_URL
-    //     .replace(/^https?:\/\//, "").replace(/\/$/, "");
-    // // ------------------------------------------------------------------------
+//     // ------------------------------------------------------------------------
+//     // CodeSandbox hack! Please ignore if you use this code elsewhere
+//     // req.headers["x-forwarded-host"] = process.env.SANDBOX_URL
+//     //     .replace(/^https?:\/\//, "").replace(/\/$/, "");
+//     // // ------------------------------------------------------------------------
 
-    smart(req, res)
-        .init({ ...smartSettings, redirectUri: "/" })
-        .then(client => handler(client, res));
-});
+//     smart(req, res)
+//         .init({ ...smartSettings, redirectUri: "/" })
+//         .then(client => handler(client, res));
+// });
 
 
 app.listen(process.env.PORT || 8080);
