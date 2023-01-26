@@ -13,7 +13,7 @@ app.use(session({
 
 // The settings that we use to connect to our SMART on FHIR server
 const smartSettings = {
-    clientId: "my-client-id",
+    clientId: "0oaeplvm80cNMqoIv297",
     redirectUri: "/app",
     scope: "launch/patient patient/Patient.read openid fhirUser",
     iss: "https://launch.smarthealthit.org/v/r2/sim/eyJrIjoiMSIsImIiOiJzbWFydC03Nzc3NzA1In0/fhir"
